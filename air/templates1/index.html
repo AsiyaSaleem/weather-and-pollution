@@ -1,0 +1,42 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Coordinates</title>
+</head>
+<body>
+    <h1>Fetch Coordinates</h1>
+    <form action="/fetch_coordinates" method="post">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br><br>
+        
+        <input type="submit" value="Fetch Coordinates">
+    </form>
+
+    <!-- Display latitude and longitude here -->
+    <div id="coordinates"></div>
+
+    <script>
+        // Function to fetch latitude and longitude
+        function fetchCoordinates() {
+            var location = document.getElementById('location').value;
+
+            // Fetch coordinates from the backend
+            fetch('/fetch_coordinates', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ location: location })
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('coordinates').innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

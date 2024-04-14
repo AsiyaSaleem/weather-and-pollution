@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather and Air Pollution Data</title>
+    <!-- Add Plotly CDN for JavaScript -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Add Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Add custom CSS for navigation bar and background color -->
+    <style>
+        /* Custom styles for navigation bar */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #2798ee;
+        }
+
+        nav ul li {
+            float: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #1fcee5;
+        }
+
+        /* Custom styles for body and html */
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: #e6f7ff; /* Light blue background color */
+        }
+    </style>
+</head>
+<body>
+    <nav style="text-align: center;">
+          <ul >
+            <li><a href="/">Home</a></li>                    
+            <li><a href="/features">Features</a></li>
+            <li><a href="/review">Reviews</a></li>
+            <li><a href="/download">Download</a></li>
+        </ul>
+    </nav>
+
+    <h1 style="text-align: center; color: #333;">Weather and Air Pollution Data</h1>
+
+    <section id="weather">
+        <h2>Weather Data</h2>
+        <div id="weather_plot">
+            <!-- Embed weather plot HTML here -->
+            {{ weather_plot | safe }}
+        </div>
+    </section>
+
+    <section id="pollution">
+        <h2>Air Pollution Data</h2>
+        <div id="pollution_plot">
+            <!-- Embed air pollution plot HTML here -->
+            {{ pollution_plot | safe }}
+        </div>
+        <p>{{ pollution_status }}</p>
+    </section>
+
+    <!-- JavaScript to handle Plotly plots -->
+    <script type="text/javascript">
+        // JavaScript code for Plotly plots
+        // Make sure to include the Plotly.newPlot calls here
+    </script>
+</body>
+</html>
